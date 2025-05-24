@@ -16,3 +16,7 @@ jobs:
           java-version: 17
       - name: build JAR
         run: mvn clean install
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
